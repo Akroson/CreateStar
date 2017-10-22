@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<link rel="stylesheet" href="http://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.2.0/css/font-awesome.min.css">
+	<style>
+		ul {
+			padding: 0;
+			margin:0;
+			list-style: none;
+			display: -webkit-flex;
+			display: -moz-flex;
+			display: -ms-flex;
+			display: -o-flex;
+			display: flex;
+			justify-content: center;
+		}
+
+		li {
+			
+		}
+		body {
+			text-align: center;
+			height: 2000px;
+		}
+
+		#star a,
+		.star a {
+			font-size: 16px;
+			padding: 5px;
+			cursor: pointer;
+			color: #FFD119;
+			text-decoration: none;
+		}
+		.wrap {
+			text-align: center;
+			margin-top: 100px;
+		}
+
+		.star-wrap {
+			margin-bottom:50px;
+		}
+		.star-wrap p {
+			margin-top: 10px;
+		}
+	</style>
+</head>
+<body>
+	<div class="wrap">
+		<div class="star-wrap">
+			<div class="star">
+				<ul>
+					<li><a href="#"></a></li>
+					<li><a href="#"></a></li>
+					<li><a href="#"></a></li>
+					<li><a href="#"></a></li>
+					<li><a href="#"></a></li>
+				</ul>
+			</div>
+			<p>This value <span class="get-rait">0</span></p>
+		</div>
+		<div class="star-wrap">
+			<div class="star">
+				<ul>
+					<li><a href="#"></a></li>
+					<li><a href="#"></a></li>
+					<li><a href="#"></a></li>
+					<li><a href="#"></a></li>
+					<li><a href="#"></a></li>
+				</ul>
+			</div>
+			<p>This value <span class="get-rait">0</span></p>
+		</div>
+		
+		<div class="star-wrap">
+			<div id="star"></div>
+			<p>This value <span class="get-rait">0</span></p>
+		</div>
+	</div>
+	<script src="js/CreateStar.js"></script>
+	<script>
+		var star1 = new CreateStar({
+			el: '.star',
+			create: false,
+			rating: 4,
+			callback: function(obj, value) {
+				if(value) {
+					obj.parentNode.querySelector('.get-rait').innerHTML = value;
+				} else {
+					return;
+				}
+			}
+		})
+
+		var star2 = new CreateStar({
+			el: '#star',
+			max: 10,
+			rating: 4,
+			callback: function(obj, value) {
+				if(value) {
+					obj.parentNode.querySelector('.get-rait').innerHTML = value;
+				} else {
+					return;
+				}
+			}
+		})
+	</script>
+</body>
+</html>
